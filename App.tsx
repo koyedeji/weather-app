@@ -3,12 +3,13 @@ import React from 'react';
 
 import { StyleSheet, View } from 'react-native';
 import WeatherApp from './src/weather-app';
+import TimerApp from './src/timer-app';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
-      <WeatherApp />
+      <TimerApp />
     </View>
   );
 }
