@@ -1,5 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+interface ImagesProps {
+  Clear: string;
+  Hail: string;
+  'Heavy Cloud': string;
+  'Light Cloud': string;
+  'Heavy Rain': string;
+  'Light Rain': string;
+  Showers: string;
+  Sleet: string;
+  Snow: string;
+  Thunder: string;
+}
 
 const images: any = {
   Clear: require('../../assets/clear.png'),
@@ -15,6 +25,5 @@ const images: any = {
 };
 
 export const getWeatherImage = (weather: string): number => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  return images[weather] || images['Hail'];
+  return images[weather] || images.Hail;
 };

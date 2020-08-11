@@ -36,7 +36,7 @@ export const useWeather = (): WeatherState => {
         isLoading: false,
       }));
     } catch (error) {
-      setState((prev) => ({ ...prev, isLoading: false, error: false }));
+      setState((prev) => ({ ...prev, isLoading: false, error: true }));
     }
   }, []);
 

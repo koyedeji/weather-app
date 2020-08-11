@@ -12,6 +12,23 @@ interface SearchInputProps {
   placeholder?: string;
 }
 
+const styles = StyleSheet.create({
+  container: {
+    borderBottomWidth: 1,
+    borderColor: 'white',
+    height: 40,
+    marginVertical: 20,
+    width: 300,
+  },
+  inputStyle: {
+    flex: 1,
+    color: 'white',
+    alignItems: 'center',
+
+    fontSize: 24,
+  },
+});
+
 export const SearchInput = ({
   onSubmit,
   placeholder,
@@ -43,19 +60,6 @@ export const SearchInput = ({
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    borderBottomWidth: 1,
-    borderColor: 'white',
-    height: 40,
-    marginVertical: 20,
-    width: 300,
-  },
-  inputStyle: {
-    flex: 1,
-    color: 'white',
-    alignItems: 'center',
-
-    fontSize: 24,
-  },
-});
+SearchInput.defaultProps = {
+  placeholder: 'Search any location',
+};

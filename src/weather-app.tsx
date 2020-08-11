@@ -25,7 +25,33 @@ const Weather = (): JSX.Element => {
 
   useEffect(() => {
     handleLocationChange('london');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+    },
+    img: {
+      flex: 1,
+      resizeMode: 'cover',
+    },
+    imgContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'stretch',
+    },
+    contentWrapper: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingHorizontal: 10,
+      paddingBottom: 100,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+  });
+
+  const hasError = !isLoading && error;
 
   return (
     <KeyboardAvoidingView behavior='height' style={[styles.container]}>
@@ -42,7 +68,7 @@ const Weather = (): JSX.Element => {
               color='white'
               size='large'
             />
-            {!isLoading && error && (
+            {hasError && (
               <InfoCard message="We can't find weather result for location. please enter another city" />
             )}
 
@@ -63,28 +89,5 @@ const Weather = (): JSX.Element => {
     </KeyboardAvoidingView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  img: {
-    flex: 1,
-    resizeMode: 'cover',
-  },
-  imgContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'stretch',
-  },
-  contentWrapper: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 10,
-    paddingBottom: 100,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-});
 
 export default Weather;

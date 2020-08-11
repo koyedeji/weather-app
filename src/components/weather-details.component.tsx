@@ -7,6 +7,28 @@ interface weatherDetailProps {
   temperature: string;
 }
 
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+  },
+  textStyle: {
+    fontFamily: Platform.OS === 'ios' ? 'AvenirNext-Regular' : 'Roboto',
+    color: 'white',
+  },
+
+  row: {
+    flexDirection: 'row',
+  },
+
+  smallText: {
+    fontSize: 24,
+  },
+  largeText: {
+    fontSize: 40,
+    marginRight: 10,
+  },
+});
+
 export const WeatherDetails = ({
   location,
   weather,
@@ -18,7 +40,7 @@ export const WeatherDetails = ({
       <View
         style={{
           ...styles.container,
-          flexDirection: 'row',
+          ...styles.row,
         }}
       >
         <Text style={[styles.textStyle, styles.largeText]}>{`${Math.round(
@@ -29,21 +51,3 @@ export const WeatherDetails = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-  },
-  textStyle: {
-    fontFamily: Platform.OS === 'ios' ? 'AvenirNext-Regular' : 'Roboto',
-    color: 'white',
-  },
-
-  smallText: {
-    fontSize: 24,
-  },
-  largeText: {
-    fontSize: 40,
-    marginRight: 10,
-  },
-});
